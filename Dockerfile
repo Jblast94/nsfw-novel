@@ -26,11 +26,11 @@ USER user
 # Set environment variables
 ENV PYTHONPATH=/app
 ENV PYTHONUNBUFFERED=1
-ENV GRADIO_SERVER_NAME=0.0.0.0
-ENV GRADIO_SERVER_PORT=7860
+ENV FLASK_RUN_HOST=0.0.0.0
+ENV FLASK_RUN_PORT=7860
 
 # Expose the port that Hugging Face Spaces expects
 EXPOSE 7860
 
 # Command to run the application
-CMD ["python", "app_spaces.py"]
+CMD ["python", "app.py"]
