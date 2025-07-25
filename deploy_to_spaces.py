@@ -145,7 +145,7 @@ This application generates adult content. Use responsibly and ensure compliance 
 - **Optimization**: Automatic device mapping and memory management
 """
     
-    with open(os.path.join(spaces_dir, 'README.md'), 'w') as f:
+    with open(os.path.join(spaces_dir, 'README.md'), 'w', encoding='utf-8') as f:
         f.write(readme_content)
     
     print("✅ All files copied successfully")
