@@ -1,6 +1,6 @@
 # NSFW Novel Generator
 
-A web application for generating NSFW stories using AI language models. This project is designed to run in GitHub Codespaces and uses the Hugging Face Transformers library with the UnfilteredAI/NSFW-3B model for story generation.
+A web application for generating NSFW stories using AI language models. This project can be deployed on Hugging Face Spaces and uses the Hugging Face Transformers library with the UnfilteredAI/NSFW-3B model for story generation.
 
 ## Features
 
@@ -10,6 +10,13 @@ A web application for generating NSFW stories using AI language models. This pro
 - Flask backend API for story generation
 - Integration with Hugging Face Transformers for using the UnfilteredAI/NSFW-3B model
 - Designed to work with both local and cloud-hosted language models
+
+## Deployment on Hugging Face Spaces
+
+1. Create a new Space on Hugging Face.
+2. Choose 'Flask' as the framework.
+3. Upload the repository files.
+4. The app will run on port 7860 automatically.
 
 ## Getting Started with GitHub Codespaces
 
@@ -22,7 +29,7 @@ The application will automatically start and be available on port 5000. GitHub C
 
 ## Local Development
 
-If you want to run the application locally instead of in Codespaces:
+If you want to run the application locally:
 
 1. Clone the repository
 2. Install dependencies: `pip install -r requirements.txt`
@@ -31,16 +38,7 @@ If you want to run the application locally instead of in Codespaces:
 
 ## Using with the UnfilteredAI/NSFW-3B Model
 
-By default, the application runs in "mock mode" and generates predefined stories to save resources. To use it with the actual UnfilteredAI/NSFW-3B model:
-
-1. Update the `app.py` file to initialize the model with `use_mock=False`:
-
-```python
-model = ModelIntegration(model_name="UnfilteredAI/NSFW-3B", use_mock=False)
-```
-
-2. The model will be automatically downloaded from Hugging Face the first time you run the application
-3. Note that this requires significant RAM and disk space as the model is approximately 3GB in size
+The application is configured to use the real model by default for Hugging Face deployment. For testing in mock mode, set `use_mock=True` in `app.py`.
 
 ### Using with Other Hugging Face Models
 

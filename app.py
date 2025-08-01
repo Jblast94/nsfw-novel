@@ -8,7 +8,7 @@ app = Flask(__name__)
 # Initialize the model integration with Hugging Face Transformers
 # By default, we use mock mode for GitHub Codespaces to avoid loading the large model
 # Set use_mock=False to use the actual UnfilteredAI/NSFW-3B model
-model = ModelIntegration(model_name="UnfilteredAI/NSFW-3B", use_mock=True)  # Mock mode for GitHub Codespaces
+model = ModelIntegration(model_name="UnfilteredAI/NSFW-3B", use_mock=False)  # Real mode for Hugging Face deployment
 
 # Serve the static HTML file
 @app.route('/')
