@@ -7,8 +7,8 @@ app = Flask(__name__)
 
 # Initialize the model integration with Hugging Face Transformers
 # By default, we use mock mode for GitHub Codespaces to avoid loading the large model
-# Set use_mock=False to use the actual UnfilteredAI/NSFW-3B model
-model = ModelIntegration(model_name="UnfilteredAI/NSFW-3B", use_mock=False)  # Real mode for Hugging Face deployment
+# Set use_mock=False to use the actual DavidAU/Gemma-3-4b-it-Uncensored-DBL-X model
+model = ModelIntegration(model_name="DavidAU/Gemma-3-4b-it-Uncensored-DBL-X", use_mock=False)  # Real mode for Hugging Face deployment
 
 # Serve the static HTML file
 @app.route('/')
@@ -22,7 +22,7 @@ def generate_story():
     prompt = data.get('prompt', '')
     genre = data.get('genre', 'romance')
     length = data.get('length', 'medium')
-    temperature = data.get('temperature', 0.7)
+    temperature = max(0.2, min(2.5, data.get('temperature', 1.0)))
     
     # Generate the story using the model integration
     story = model.generate_story(prompt, genre, length, temperature)
