@@ -40,10 +40,14 @@ class ModelIntegration:
             print(f"Loading model {self.model_name} from Hugging Face...")
             
             # Load tokenizer and model
-            self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
+            self.tokenizer = AutoTokenizer.from_pretrained(
+                self.model_name,
+                trust_remote_code=True
+            )
             self.model = AutoModelForCausalLM.from_pretrained(
                 self.model_name,
-                torch_dtype=torch.float16,  # Use half-precision to reduce memory usage
+                trust_remote_code=True,
+                torch_dtype=torch.bfloat16,  # Use bfloat16 as recommended
                 device_map="auto"  # Automatically determine the best device configuration
             )
             
